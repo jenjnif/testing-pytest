@@ -1,10 +1,11 @@
 '''
 Using namedtuples.
 
-Cat with a:
-    - species_name
+Cat:
+    - type
     - size
     - favourite_food
+    - roars
 '''
 
 from collections import namedtuple
