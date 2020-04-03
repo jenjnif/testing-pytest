@@ -2,6 +2,7 @@ from cats import Cat
 
 # four example tests
 # Cat = namedtuple('Cat', ['type', 'max_size', 'favourite_food', 'roars'])
+# max_size in meters
 
 
 def test_cat_defaults():
@@ -17,6 +18,7 @@ def test_cat_attributes():
     assert c3.max_size == 2.5
     assert c3.favourite_food == 'elephant'
     assert c3.roars is True
+    assert 'leopard' not in c3
 
 
 def test_asdict():
@@ -39,3 +41,14 @@ def test_cat_replace():
     c_expected = Cat('cheetah', 1.5, 'rabbit', False)
 
     assert c_after == c_expected
+    assert c_after.roars is False
+    assert c_expected.max_size < 2.0
+
+
+def test_cat_fail():
+    c4 = Cat('leopard', 1.6, 'snake', True)
+    c5 = Cat('ocelot', 1.0, 'fish', False)
+    c6 = Cat('lynx', 1.3, 'squirrel', False)
+
+    assert 'lynx' in c6
+    assert c4.max_size <= c5.max_size
