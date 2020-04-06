@@ -1,3 +1,5 @@
+import pytest
+
 from cats import Cat
 
 # four example tests
@@ -34,6 +36,7 @@ def test_asdict():
     assert c_dict == expected
 
 
+@pytest.mark.run_these_please
 def test_cat_replace():
     # replace() should change passed in fields
     c_before = Cat('cheetah', 1.5, 'rabbit', True)
@@ -45,6 +48,7 @@ def test_cat_replace():
     assert c_expected.max_size < 2.0
 
 
+@pytest.mark.run_these_please
 def test_cat_fail():
     c4 = Cat('leopard', 1.6, 'snake', True)
     c5 = Cat('ocelot', 1.0, 'fish', False)
